@@ -1,0 +1,31 @@
+.search {
+    width: 50%;
+}
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 767px) {
+    .search {
+        width: 95%;
+    }
+}
+
+.search .btn {
+    border-color: #198754;
+    border-radius: 0 5px 5px 0;
+    color: #198754;
+}
+
+.search .btn:hover {
+    color: #fff;
+    background-color: #198754;
+}
+
+.input-text:focus {
+    box-shadow: 0px 0px 0px;
+    border-color: #198754;
+    outline: 0px;
+}
+
+.form-control {
+    border: 1px solid #198754;
+}
