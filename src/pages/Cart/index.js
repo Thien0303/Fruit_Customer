@@ -29,7 +29,7 @@ const Cart = () => {
         <>
             <header className="header">
                 <div className="container">
-                    <h1 className="display-4 fw-bolder">Vỏ hàng của bạn</h1>
+                    <h1 className="display-4 fw-bolder">Giỏ hàng của bạn</h1>
                 </div>
             </header>
 
@@ -52,14 +52,14 @@ const Cart = () => {
                                                                 <div className="product-name">
                                                                     <Link to={`/detail/${product.fruitId}`}>{product.fruitName}</Link>
                                                                     <div className="product-info">
-                                                                        <div>Category: <span className="value">{product.categoryFruitName}</span></div>
-                                                                        <div>Origin: <span className="value">{product.originCity}</span></div>
-                                                                        <div>Quantity Available: <span className="value">{product.quantityAvailable}</span></div>
+                                                                        <div>Loại sản phẩm: <span className="value">{product.categoryFruitName}</span></div>
+                                                                        <div>Xuất xứ: <span className="value">{product.originCity}</span></div>
+                                                                        <div>Số lượng có sẵn: <span className="value">{product.quantityAvailable}</span></div>
                                                                     </div>
                                                                 </div>
                                                             </div>
                                                             <div className="col-md-4 quantity">
-                                                                <label for="quantity">Quantity:</label>
+                                                                <label for="quantity">Số lượng:</label>
                                                                 <input
                                                                     id="quantity"
                                                                     type="number"
@@ -71,7 +71,7 @@ const Cart = () => {
                                                                 />
                                                             </div>
                                                             <div className="col-md-3 price">
-                                                                <span>${product.price}</span>
+                                                                <span>{product.price?.toFixed(3)} vnđ</span>
                                                                 <IconButton
                                                                     edge="end"
                                                                     color="inherit"
@@ -92,7 +92,7 @@ const Cart = () => {
                             <div className="col-md-12 col-lg-4">
                                 <div className="summary">
                                     <h3>Tóm tắt đơn hàng</h3>
-                                    <div className="summary-item"><span className="text">Tổng tiền</span><span className="price">{calculateTotal().toFixed(3)} vnđ</span></div>
+                                    <div className="summary-item"><span className="text">Tổng tiền</span><span className="price">{calculateTotal()?.toFixed(3)} vnđ</span></div>
                                     <button type="button" className="btn btn-primary btn-lg btn-block" onClick={e => navigate(`/checkout`)}>Thanh toán</button>
                                 </div>
                             </div>

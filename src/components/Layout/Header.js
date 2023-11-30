@@ -130,7 +130,7 @@ const Header = () => {
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
                         <li className="nav-item"><Link className="nav-link active" aria-current="page" to={'/'}>Cửa hàng</Link></li>
-                        <li className="nav-item"><Link className="nav-link" to={'/cart'}>Vỏ hàng</Link></li>
+                        <li className="nav-item"><Link className="nav-link" to={'/cart'}>Giỏ hàng</Link></li>
                         <li className="nav-item"><Link className="nav-link" to={'/checkout'}>Thanh toán</Link></li>
                         {/* <li className="nav-item"><Link className="nav-link" to={'/history'}>History</Link></li> */}
                     </ul>

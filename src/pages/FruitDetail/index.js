@@ -194,7 +194,7 @@ const FruitDetail = () => {
                         </div>
                         <div className="col-md-6">
                             <div className="small mb-1">
-                                Category: {fruitDetail?.categoryFruitName}
+                                Loại sản phẩm: {fruitDetail?.categoryFruitName}
                             </div>
                             <h1 className="display-5 fw-bolder">{fruitDetail?.fruitName}</h1>
                             <div className="fs-5 mb-3">
@@ -241,7 +241,7 @@ const FruitDetail = () => {
                             <textarea
                                 className="form-control mb-3"
                                 rows="3"
-                                placeholder="Join the discussion and leave a comment!"
+                                placeholder="Vui lòng nhập đánh giá ở đây"
                                 onChange={(e) =>
                                     setData({ ...data, ReviewComment: e.target.value })
                                 }
@@ -249,7 +249,7 @@ const FruitDetail = () => {
                                 value={data.ReviewComment}
                             ></textarea>
                             <button className="btn btn-success" type="submit">
-                                Post
+                                Đánh giá
                             </button>
                         </form>
                         {reviews?.map(

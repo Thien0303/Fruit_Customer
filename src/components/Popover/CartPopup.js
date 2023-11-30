@@ -40,7 +40,7 @@ const CartPopup = ({ open, anchorEl, handleClose }) => {
         >
             <Box p={2} width={400}>
                 <Box display="flex" alignItems="center" justifyContent="space-between">
-                    <Typography variant="h6">Shopping Cart</Typography>
+                    <Typography variant="h6">Mua sắm sản phẩm</Typography>
                 </Box>
                 <List>
                     {cartItems.map((product) => (
@@ -60,7 +60,7 @@ const CartPopup = ({ open, anchorEl, handleClose }) => {
                                     <Typography variant="body1">{product.fruitName}</Typography>
                                 </Box>
                                 <Typography variant="body2">
-                                    {product.quantity} x ${product.price.toFixed(2)}
+                                    {product.quantity} x {product.price?.toFixed(3)}
                                     <IconButton
                                         edge="end"
                                         color="inherit"
@@ -75,18 +75,18 @@ const CartPopup = ({ open, anchorEl, handleClose }) => {
                 </List>
                 <Divider />
                 <Box mt={2} display="flex" justifyContent="space-between">
-                    <Typography variant="subtitle1">Subtotal:</Typography>
-                    <Typography variant="subtitle1">${calculateSubtotal().toFixed(2)}</Typography>
+                    <Typography variant="subtitle1">Tổng tiền:</Typography>
+                    <Typography variant="subtitle1">{calculateSubtotal()?.toFixed(3)} vnđ</Typography>
                 </Box>
                 <Box mt={2} display="flex" justifyContent="space-between">
                     <NavLink to={'/cart'}>
                         <Button variant="contained" color="primary" onClick={handleClose}>
-                            Cart
+                            Giỏ hàng
                         </Button>
                     </NavLink>
                     <NavLink to={'/checkout'}>
                         <Button variant="contained" color="primary" onClick={handleClose}>
-                            Checkout
+                            Thanh toán
                         </Button>
                     </NavLink>
                 </Box>
