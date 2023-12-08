@@ -89,7 +89,7 @@ export default function SignInSide() {
                                 required
                                 fullWidth
                                 id="email"
-                                label="Email Address"
+                                label="Địa chỉ email"
                                 name="email"
                                 autoComplete="email"
                                 autoFocus
@@ -100,37 +100,32 @@ export default function SignInSide() {
                                 required
                                 fullWidth
                                 name="password"
-                                label="Password"
+                                label="Mật khẩu"
                                 type="password"
                                 id="password"
                                 autoComplete="current-password"
                                 onChange={(e) => setPassword(e.target.value)}
                             />
-                            {/* <FormControlLabel
-                control={<Checkbox value="remember" color="primary" />}
-                label="Remember me"
-              /> */}
                             <Button
                                 type="submit"
                                 fullWidth
                                 variant="contained"
                                 sx={{ mt: 3, mb: 2 }}
                             >
-                                Sign In
+                                Đăng nhập
                             </Button>
                             <Grid container>
                                 <Grid item xs>
-                                    <Link href="#" variant="body2">
-                                        Forgot password?
+                                    <Link href="/forgotPassword" variant="body2">
+                                        Quên mật khẩu?
                                     </Link>
                                 </Grid>
                                 <Grid item>
                                     <Link href="/register" variant="body2">
-                                        {"Don't have an account? Sign Up"}
+                                        {"Bạn chưa có tài khoản?"}
                                     </Link>
                                 </Grid>
                             </Grid>
-                            {/* <Copyright sx={{ mt: 5 }} /> */}
                         </Box>
                     </Box>
                 </Grid>

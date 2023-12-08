@@ -17,7 +17,6 @@ import { useDispatch, useSelector } from 'react-redux'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
 import DeleteIcon from '@mui/icons-material/Delete'
-import Popup from '../../components/Popover/CartPayment'
 import { toast } from 'react-toastify'
 import { getAllDiscountFruit } from '../../redux/apiThunk/discountThunk'
 import { createAllOrder, getAllSupplier } from '../../redux/apiThunk/orderThunk'
@@ -62,27 +61,20 @@ const Checkout = () => {
         if (loadAgain) {
             const updatedUserData = userData.map((user) => {
                 let total = 0
-                let intrasitAmout = 0
 
                 for (let j = 0; j < cartItems.length; j++) {
                     if (user.userId === cartItems[j].userId) {
                         const quantity = cartItems[j].quantity || 0
                         const percent = cartItems[j].percent || 0
                         const price = cartItems[j].price || 0
-                        const deposit = cartItems[j].depositAmount || 0
 
                         total += quantity * price - (quantity * price * percent) / 100
 
-                        if (percent > 0) {
-                            intrasitAmout +=
-                                (quantity * price - (quantity * price * percent) / 100) * deposit
-                        }
                     }
                 }
                 return {
                     ...user,
                     total: total,
-                    intrasitAmout: intrasitAmout,
                 }
             })
             setUserData(updatedUserData)
@@ -102,7 +94,6 @@ const Checkout = () => {
                             return {
                                 ...existingUser,
                                 total: apiUser.total,
-                                intrasitAmout: apiUser.intrasitAmout,
                             }
                         } else {
                             return apiUser
@@ -153,20 +144,8 @@ const Checkout = () => {
                 orderDetails: orderDetail,
             }
             try {
-                const [orderResult] = await Promise.all([dispatch(createAllOrder(orderData))])
-
-                if (orderResult?.payload) {
-                    const hasPreOrder = cartItemsByFarmer.some(
-                        (item) => item.orderType === 'PreOrder'
-                    )
-                    if (hasPreOrder) {
-                        const res = orderResult.payload
-                        setDepositPrice(res?.depositAmount)
-                        setImageUrl(res?.sellerImageMomoUrl)
-                        setOpen(true)
-                    } 
-                    dispatch(removeFromCartByFamer(userId))
-                }
+                dispatch(createAllOrder(orderData));
+                dispatch(removeFromCartByFamer(userId)); 
             } catch (error) {
                 toast.error('Lỗi khi đặt hàng')
             }
@@ -426,17 +405,9 @@ const Checkout = () => {
                                                             variant="subtitle1"
                                                             gutterBottom
                                                         >
-                                                            Tổng số tiền cần trả trước:{' '}
-                                                            {f?.intrasitAmout * 1000 || 0} vnđ
-                                                        </Typography>
-                                                        <Typography
-                                                            variant="subtitle1"
-                                                            gutterBottom
-                                                        >
                                                             Tổng số tiền cần trả sau khi nhận hàng:{' '}
-                                                            {f?.total
-                                                                ? (f.total - f.intrasitAmout) * 1000
-                                                                : 0} vnđ
+                                                            {f?.total* 1000
+                                                                } vnđ
                                                         </Typography>
                                                         <Button
                                                             onClick={() => {
@@ -460,7 +431,6 @@ const Checkout = () => {
                         </div>
                     </div>
                 </div>
-                <Popup open={open} onClose={() => setOpen(false)} imageUrl={imageUrl} depositPrice={depositPrice}/>
             </section>
         </>
     )

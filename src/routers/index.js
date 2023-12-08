@@ -11,6 +11,7 @@ import CheckOut from '../pages/CheckOut'
 import NotFound from '../pages/NotFound'
 import Layout from '../components/Layout'
 import PrivateRouters from './PrivateRouters'
+import ForgotPassword from "../pages/Login/ForgotPassword"
 // import { NotFoundRoute } from './NotFoundRouters';
 export const publicRouters = [
     {
@@ -23,6 +24,12 @@ export const publicRouters = [
         path: '/register',
         name: 'register',
         component: Register,
+        layout: null,
+    },
+    {
+        path: '/forgotPassword',
+        name: 'forgotPassword',
+        component: ForgotPassword,
         layout: null,
     },
     {
