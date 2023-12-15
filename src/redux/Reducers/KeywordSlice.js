@@ -1,6 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// Create a slice
 const keywordSlice = createSlice({
   name: 'keyword',
   initialState: {
@@ -13,6 +12,5 @@ const keywordSlice = createSlice({
   },
 });
 
-// Extract actions and reducer
 export const { setKeyword } = keywordSlice.actions;
 export default  keywordSlice.reducer;

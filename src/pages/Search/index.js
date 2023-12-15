@@ -7,13 +7,6 @@ const Search = () => {
     const dispatch = useDispatch()
     const keyword= useSelector((state) => state?.keyword?.value);
     const [searchQuery, setSearchQuery] = useState(keyword);
-
-    // useEffect(() => {
-    //     if (searchQuery.trim() !== '') {
-    //         dispatch(getFruit({ name: searchQuery, min: '', max: '', newDate: '', createDate: '', user: '' }))
-    //     }
-    // }, [dispatch, searchQuery])
-
     const handleFormSubmit = (e) => {
         e.preventDefault();
             dispatch(getFruit({ name: searchQuery, min: '', max: '', newDate: '', createDate: '', user: '' }))

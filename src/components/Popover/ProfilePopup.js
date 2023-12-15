@@ -1,16 +1,12 @@
-import React from 'react'
 import {
-    Popover,
-    List,
-    ListItem,
-    Typography,
     Box,
     Button,
-    IconButton,
     Divider,
-} from '@mui/material'
+    Popover
+} from '@mui/material';
+import React from 'react';
 // import HighlightOffRoundedIcon from '@mui/icons-material/HighlightOffRounded'
-import { NavLink, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom';
 
 const ProfilePopup = ({ open, anchorEl, handleClose }) => {
     const navigate = useNavigate();
@@ -33,9 +29,6 @@ const ProfilePopup = ({ open, anchorEl, handleClose }) => {
             }}
         >
             <Box p={2} width={100}>
-                <Box display="flex" alignItems="center" justifyContent="space-between">
-                    <Button variant="h6">Profile</Button>
-                </Box>
                 <Divider />
                 <Box display="flex" alignItems="center" justifyContent="space-between">
                     <Button variant="h6" onClick={e => handleLogout(e)}>Logout</Button>
