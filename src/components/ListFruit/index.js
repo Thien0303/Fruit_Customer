@@ -68,7 +68,7 @@ const FruitList = (data) => {
                                     Loại đặt hàng: {product?.orderType}
                                     <hr/>
 
-                                    <span style={{color: "red"}}> Giá: {product?.price.toFixed(3)} vnđ</span>
+                                    <span style={{color: "red"}}> Giá: {product?.price.toFixed(3)} vnđ/kg</span>
                                 </div>
                             </div>
                         </Link>

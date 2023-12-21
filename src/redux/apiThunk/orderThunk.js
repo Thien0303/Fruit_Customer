@@ -7,7 +7,7 @@ export const createAllOrder = createAsyncThunk(
         console.log("abc: ", data);
         try {
             const response = await createOrder(data);
-            toast.success("Đặt hàng thành công, Chủ vườn sẽ liên hệ lại với bạn sau");
+            toast.success("Đặt hàng thành công, Thương lái sẽ liên hệ lại với bạn sau");
             return response;
         } catch (error) {
             toast.error("Tạo đơn hàng thất bại")
